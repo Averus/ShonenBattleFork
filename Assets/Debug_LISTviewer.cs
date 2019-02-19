@@ -26,7 +26,7 @@ public class Debug_LISTviewer : MonoBehaviour {
 
         for (int i = 0; i < actionmanager.LIST1.Count; i++)
         {
-            t += actionmanager.LIST1[i].beingName + " Reflex: " + actionmanager.LIST1[i].currentActionReflex + "\n";
+            t += actionmanager.LIST1[i].being.beingName + " Reflex: " + actionmanager.LIST1[i].reflexSpeed + "\n";
         }
 
         t += "\n";
@@ -44,7 +44,7 @@ public class Debug_LISTviewer : MonoBehaviour {
 
         for (int i = 0; i < actionmanager.LIST3.Count; i++)
         {
-            t += actionmanager.LIST3[i].ability.GetParentBeing().beingName + ": " + actionmanager.LIST3[i].ability.abilityName + "\n";
+            t += actionmanager.LIST3[i].ability.GetParentBeing().beingName + ": " + actionmanager.LIST3[i].ability.abilityName + " ToHit: " + actionmanager.LIST3[i].toHit + " Reflex: " + actionmanager.LIST3[i].reflex +  "\n";
         }
 
     

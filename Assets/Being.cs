@@ -42,8 +42,8 @@ public class Being : MonoBehaviour{
     public bool isInTheCurrentRound = false; //testing this
     public bool isCommittedToAction = false;
     public bool hasTakenAction = false;
-    public List<AbilityToken> selectedAbilities = new List<AbilityToken>();
-    public float currentActionReflex = 0; //the reflex speed this Being is currently acting under.
+    public List<Thought> selectedAbilities = new List<Thought>();
+    //public float currentActionReflex = 0; //the reflex speed this Being is currently acting under.
 
 
     public void Start()
@@ -172,7 +172,7 @@ public class Being : MonoBehaviour{
         return null;
     }
    
-
+    /*
     //GetUsableAbilities should be called once per turn. Filters abilities by which ones can be performed, checks for valid targets for each ability and populated their valid targets lists
     public void GetUseableActiveAbilities()
     {
@@ -227,6 +227,7 @@ public class Being : MonoBehaviour{
         }
     }
 
+        */
     //Compares behaviours to the abilities that can be used and sets selectedAbility equal to an ability from useableAbilities
 
     /*
@@ -304,14 +305,15 @@ public void SelectAnAbility()
 
     //new bits for Shonen fork 17/02/2019
 
-    public void rollReflex()
+    public float rollReflex()
     {
-        currentActionReflex = Random.Range(0, GetStatValue("REFLEX",2));
+        return Random.Range(0, GetStatValue("REFLEX",2));
     }
     
-    public List<AbilityToken> Think() //This should check to see that the being isnt unconcious etc
+    public List<Thought> Think() //This should check to see that the being isnt unconcious etc
     {
-        List<AbilityToken> actions = new List<AbilityToken>();
+        List<Thought> actions = new List<Thought>();
+        float thisThoughtsReflex = rollReflex();
 
         useableAbilities.Clear();
 
@@ -320,23 +322,18 @@ public void SelectAnAbility()
                 if (abilities[i].CanThisBeUsed(actionManager))
                 {
                     useableAbilities.Add(abilities[i]);
-                    Debug.Log(abilities[i].abilityName + " added to useableAbilities list");
+                    //Debug.Log(abilities[i].abilityName + " added to useableAbilities list");
                 }
-
         }
-
-        Debug.Log("actions is a size: " + actions.Count);
 
 
         for (int i = 0; i < useableAbilities.Count; i++)
         {
-            actions.Add(new AbilityToken(currentActionReflex, 0, useableAbilities[i]));
+            actions.Add(new Thought(thisThoughtsReflex, 0, useableAbilities[i]));
             //mark each ability with the reflex speed it's firing on so it can be ordered by Action Manager
         }
 
-        Debug.Log("actions is a size: " + actions.Count);
-
-        Debug.Log(beingName + " is prioritising useable abilities...");
+        //Debug.Log(beingName + " is prioritising useable abilities...");
 
         for (int i = 0; i < behaviours.Count; i++)
         {
@@ -349,14 +346,14 @@ public void SelectAnAbility()
         
         //Will need to expand this in future to sort by AbilityType AND priority
         //Also to tie break tied priorities
-        List<AbilityToken> SortedList = actions.OrderBy(o => o.priority).ToList();
+        List<Thought> sortedList = actions.OrderBy(o => o.priority).ToList(); //Is this worting in the right order?
+        actions = sortedList;
 
         //below is an ugly way of selecting one and only one public normal action...this will change in the future
         bool hasOnlyOnePublicNormalAction = false;
-        List<AbilityToken> fastestPublicNormal = new List<AbilityToken>();
+        List<Thought> fastestPublicNormal = new List<Thought>();
         for (int i = 0; i < actions.Count; i++)
         {
-            Debug.Log(actions[i].ability.abilityType);
             if (hasOnlyOnePublicNormalAction == false && actions[i].ability.abilityType == AbilityType.PublicNormal)
             {
                 hasOnlyOnePublicNormalAction = true;
@@ -380,8 +377,17 @@ public void SelectAnAbility()
         return actions;
 
     }
+    public Action Act(Thought thought)
 
+    {
+        return new Action(rollToHit(thought), thought.reflex, thought.ability);
+    }
 
+     private float rollToHit(Thought thought)
+    {
+        //todo
+        return Random.Range(0, 10);
+    }
 
 
     public void Update()
@@ -391,7 +397,8 @@ public void SelectAnAbility()
             //this should perhaps be an ability itself or check if this being is unconcious etc
             isInTheCurrentRound = true;
             rollReflex();
-            actionManager.AddToBeingQueue(this);
+            BeingToken bt = new BeingToken(this, rollReflex());
+            actionManager.AddToBeingQueue(bt);
         }
     }
 

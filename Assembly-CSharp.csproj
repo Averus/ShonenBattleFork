@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{907E6D3B-F8AF-9A4B-4929-5F8E3E02E145}</ProjectGuid>
+    <ProjectGuid>{94305CC9-D272-C3C8-2720-94B9F7BA18E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,8 +63,9 @@
   <ItemGroup>
     <Compile Include="Assets\Abilities\_old\StatModulation.cs" />
     <Compile Include="Assets\Abilities\Ability.cs" />
-    <Compile Include="Assets\Abilities\AbilityToken.cs" />
+    <Compile Include="Assets\Abilities\Action.cs" />
     <Compile Include="Assets\Abilities\Behaviour.cs" />
+    <Compile Include="Assets\Abilities\BeingToken.cs" />
     <Compile Include="Assets\Abilities\Condition.cs" />
     <Compile Include="Assets\Abilities\Conditions\Alone_Condition.cs" />
     <Compile Include="Assets\Abilities\Conditions\NewRound_Condition.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Abilities\TargetingCriteria.cs" />
     <Compile Include="Assets\Abilities\TargetingCriteria\Others_TargetingCriteria.cs" />
     <Compile Include="Assets\Abilities\TargetingCriteria\Self_TargetingCriteria.cs" />
+    <Compile Include="Assets\Abilities\Thought.cs" />
     <Compile Include="Assets\ActionManager.cs" />
     <Compile Include="Assets\BattleManager.cs" />
     <Compile Include="Assets\Being.cs" />
@@ -242,16 +244,16 @@
     <None Include="Assets\CodeGraphData\Result_solution\xml\class_main.xml" />
     <None Include="Assets\CodeGraphData\Result_Assembly-CSharp\xml\class_includes_effect.xml" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Tim/Documents/ShonenBattle/ShonenBattle/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Tim/Documents/ShonenBattleFork/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Tim/Documents/ShonenBattle/ShonenBattle/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tim/Documents/ShonenBattleFork/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Tim/Documents/ShonenBattle/ShonenBattle/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Tim/Documents/ShonenBattleFork/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Tim/Documents/ShonenBattle/ShonenBattle/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Tim/Documents/ShonenBattleFork/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

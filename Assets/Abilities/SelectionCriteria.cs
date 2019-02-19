@@ -13,7 +13,7 @@ public abstract class SelectionCriteria {
     public float maxPriority;
 
 
-    public abstract void Assess(AbilityToken abil);
+    public abstract void Assess(Thought thought);
 
 
     public SelectionCriteria(BattleManager battleManager, Being parentBeing, string selectionCriteriaName, float minPriority, float maxPriority)

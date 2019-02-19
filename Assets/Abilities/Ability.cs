@@ -46,7 +46,7 @@ public class Ability {
     public List<Being> validTargets = new List<Being>();
 
 
-    public void checkForValidTargets(List<Being> beings)
+    public void checkForValidTargets(List<BeingToken> beings)
     {
 
         if (targetingCriteria.Count == 0)
@@ -64,9 +64,9 @@ public class Ability {
         {
             for (int ii = 0; ii < targetingCriteria.Count; ii++)   //check them against each TargetingCriteria rule this ability has...
             {
-                if (targetingCriteria[ii].CanThisBeTargeted(beings[i]))     // Each Target rule can evaluate whether a given Being can be targeted...
+                if (targetingCriteria[ii].CanThisBeTargeted(beings[i].being))     // Each Target rule can evaluate whether a given Being can be targeted...
                 {
-                    validTargets.Add(beings[i]);                  //If even one of the Target rules returns 'true' then that combatant is added to the temporary list of validTargets, to be returned.
+                    validTargets.Add(beings[i].being);                  //If even one of the Target rules returns 'true' then that combatant is added to the temporary list of validTargets, to be returned.
 
                 }
             }
@@ -74,6 +74,7 @@ public class Ability {
 
     } //We might need a getValidTargets that returns a list for the active version of this ability
 
+    /*
     public bool CanThisBeUsed()
     {
 
@@ -97,6 +98,7 @@ public class Ability {
         //Debug.Log(abilityName + " can be used");
         return true; 
     }
+    */
 
     public bool CanThisBeUsed(ActionManager actionManager) //this is the new version for Action manager
     {

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 [System.Serializable]
 public class BattleManager : MonoBehaviour {
 
+    
+
     public Main mainState;
 
     public BeingFactory beingFactory;
@@ -85,7 +87,7 @@ public class BattleManager : MonoBehaviour {
     {
         for (int i = 0; i < combatants.Count; i++)
         {
-            combatants[i].GetUseablePassiveAbilities();  //useable passive abilities are put in the useable abilities list
+           // combatants[i].GetUseablePassiveAbilities();  //useable passive abilities are put in the useable abilities list
 
             if (combatants[i].useableAbilities.Count == 0)
             {
@@ -113,7 +115,7 @@ public class BattleManager : MonoBehaviour {
 
         //Any looking for passive or some such would go here
 
-        being.GetUseableActiveAbilities();
+       // being.GetUseableActiveAbilities();
 
         if (being.useableAbilities.Count > 0)
         {
@@ -243,7 +245,7 @@ public class BattleManager : MonoBehaviour {
     {
         //TESTReportOnEffectQueue();//test
         //look through defences and put useable ones in the useableDefences list
-        defender.GetUseableDefences();
+      //  defender.GetUseableDefences();
 
         //the next part selects a defence to use, this is done automatically by comparing speeds at the moment.
         //compare useable defences to the incoming ability
@@ -374,4 +376,6 @@ public class BattleManager : MonoBehaviour {
         mainState = main;
         beingFactory = bf;
     }
+
+    
 }

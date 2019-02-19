@@ -8,15 +8,15 @@ public class IncludesEffect_SelectionCriteria : SelectionCriteria
     String effectName;
     
 
-    public override void Assess(AbilityToken abil)
+    public override void Assess(Thought thought)
     {
        //Debug.Log("Looking for abilities in " + abil.abilityName + " that contain an effect called " + effectName);
-        for (int i = 0; i < abil.ability.effects.Count; i++)
+        for (int i = 0; i < thought.ability.effects.Count; i++)
         {
-            if (abil.ability.effects[i].effectName == effectName)
+            if (thought.ability.effects[i].effectName == effectName)
             {
                 //Debug.Log(abil.abilityName + " contains an effect called " + effectName);
-                abil.priority += UnityEngine.Random.Range(minPriority, maxPriority);
+                thought.priority += UnityEngine.Random.Range(minPriority, maxPriority);
             }
         }
         //Debug.Log(abil.abilityName + " does not contain an effect called " + effectName);

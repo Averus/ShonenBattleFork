@@ -29,7 +29,7 @@ public class Behaviour{
         return true;
     }
 
-    public void PrioritiseAbilities(List<AbilityToken> abil)
+    public void PrioritiseAbilities(List<Thought> thoughts)
     {
        
 
@@ -39,9 +39,9 @@ public class Behaviour{
 
         for (int i = 0; i < selectionCriteria.Count; i++)
         {
-            for (int ii = 0; ii < abil.Count; ii++)
+            for (int ii = 0; ii < thoughts.Count; ii++)
             {
-                selectionCriteria[i].Assess(abil[ii]);
+                selectionCriteria[i].Assess(thoughts[ii]);
             }
         }
 

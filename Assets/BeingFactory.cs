@@ -57,7 +57,7 @@ public class BeingFactory : MonoBehaviour {
     void NewBasicStats(Being b)
     {
         Stat reflex = new Stat("REFLEX", b, 100, 100);
-        reflex.current = 10;
+        reflex.current = 10f;
 
         b.stats.Add(reflex);
     }
