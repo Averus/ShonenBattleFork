@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Abilities\_old\BattleManager.cs" />
     <Compile Include="Assets\Abilities\_old\StatModulation.cs" />
     <Compile Include="Assets\Abilities\Ability.cs" />
     <Compile Include="Assets\Abilities\Action.cs" />
@@ -95,9 +96,9 @@
     <Compile Include="Assets\Abilities\TargetingCriteria\Self_TargetingCriteria.cs" />
     <Compile Include="Assets\Abilities\Thought.cs" />
     <Compile Include="Assets\ActionManager.cs" />
-    <Compile Include="Assets\BattleManager.cs" />
     <Compile Include="Assets\Being.cs" />
     <Compile Include="Assets\BeingFactory.cs" />
+    <Compile Include="Assets\ChassisTable.cs" />
     <Compile Include="Assets\Debug_LISTviewer.cs" />
     <Compile Include="Assets\DebugUI.cs" />
     <Compile Include="Assets\Main.cs" />

@@ -10,6 +10,19 @@ public enum AbilityType
     PublicNormal = 200,
 }
 
+public enum AbilityChassis
+{
+    Melee = 100,
+    Beam = 200,
+    Wave = 300,
+    Ball = 400,
+    BigBall = 500,
+    Blast = 600,
+
+    Block = 700,
+    Dodge = 800,
+}
+
 [System.Serializable]
 public class Ability {
 
@@ -22,6 +35,7 @@ public class Ability {
     public int ranks = 0;
     public int numberOfTargets = 1;
     //New bits for the action manager
+    public AbilityChassis abilityChassis;
     public AbilityType abilityType = AbilityType.PublicNormal;
     public float reflex = 0;
     public float abilitySpeed = 0;
@@ -172,11 +186,11 @@ public class Ability {
     }
 
 
-    public Ability(BattleManager bm, Being parentBeing, string name, int ranks, int numberOfTargets, bool isPassive)
+    public Ability(Being parentBeing, string name, AbilityChassis abilityChassis, int ranks, int numberOfTargets, bool isPassive)
     {
-        this.battlemanager = bm;
         this.parentBeing = parentBeing;
         this.abilityName = name;
+        this.abilityChassis = abilityChassis;
         this.ranks = ranks;
         this.numberOfTargets = numberOfTargets;
         this.isPassive = isPassive;

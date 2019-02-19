@@ -39,7 +39,7 @@ public class Being : MonoBehaviour{
 
     //New things 17/02/2019
     ActionManager actionManager;
-    public bool isInTheCurrentRound = false; //testing this
+    public bool isInTheCurrentRound = false;
     public bool isCommittedToAction = false;
     public bool hasTakenAction = false;
     public List<Thought> selectedAbilities = new List<Thought>();
@@ -171,7 +171,7 @@ public class Being : MonoBehaviour{
         Debug.Log("ERROR: " + beingName + " does not contain a resource named " + resourceName);
         return null;
     }
-   
+
     /*
     //GetUsableAbilities should be called once per turn. Filters abilities by which ones can be performed, checks for valid targets for each ability and populated their valid targets lists
     public void GetUseableActiveAbilities()
@@ -268,7 +268,7 @@ public void SelectAnAbility()
 
 } 
 
-*/
+
     public void SelectTargets(Ability ability)
     {
         selectedTargets.Clear();//get rid of any targets from a previous turn
@@ -301,7 +301,7 @@ public void SelectAnAbility()
 
     }
 
-
+*/
 
     //new bits for Shonen fork 17/02/2019
 

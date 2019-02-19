@@ -189,6 +189,7 @@ public class ActionManager : MonoBehaviour {
             if (LIST3[0].ability.CanThisBeUsed(this))
             {
                 Debug.Log(LIST3[0].ability.GetParentBeing().beingName + " uses " + LIST3[0].ability.abilityName);
+                LIST3[0].ability.Use();
             }
             LIST3.RemoveAt(0);
         }

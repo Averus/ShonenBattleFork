@@ -64,7 +64,7 @@ public class BeingFactory : MonoBehaviour {
     //defence blocks
     void BasicDefences(Being b)
     {
-        Ability def1 = new Ability(battleManager,b, "Block",100, 1, true);
+        Ability def1 = new Ability(b,"Block",100, 1, true);
         def1.isDefence = true;
         def1.defenceSpeed = 50;
         ResourceAtValue_Condition reqStam = new ResourceAtValue_Condition(battleManager, b, "Stamina above 0", "STAMINA", ">", 0);
@@ -79,7 +79,7 @@ public class BeingFactory : MonoBehaviour {
         b.defences.Add(def1);
 
         //Create a generic 'dodge' defence
-        Ability def2 = new Ability(battleManager, b, "Dodge", 100, 1, true);
+        Ability def2 = new Ability(b, "Dodge", 100, 1, true);
         def2.isDefence = true;
         def2.defenceSpeed = 40;
         ResourceAtValue_Condition reqStam2 = new ResourceAtValue_Condition(battleManager, b, "Stamina above 0", "STAMINA", ">", 0);
@@ -94,7 +94,7 @@ public class BeingFactory : MonoBehaviour {
         b.defences.Add(def2);
 
         //Create a generic 'free action' defence
-        Ability def3 = new Ability(battleManager, b, "Any Action", 100, 1, true);
+        Ability def3 = new Ability(b, "Any Action", 100, 1, true);
         def3.isDefence = true;
         def3.defenceSpeed = 5;
         NoCondition_Condition noCondition6 = new NoCondition_Condition(battleManager, b, "NoCondition");
@@ -137,7 +137,7 @@ public class BeingFactory : MonoBehaviour {
     void BasicAttackAbilities(Being b)
     {
 
-        Ability ab3 = new Ability(battleManager, b, "Poor punch", 100, 1, false);
+        Ability ab3 = new Ability(b, "Poor punch", 100, 1, false);
         NoCondition_Condition noCondition2 = new NoCondition_Condition(battleManager, b, "NoCondition");
         ModulateResource_Effect damage = new ModulateResource_Effect(battleManager, b, ab3, "Damage", "HP", -3, false);
         Others_TargetingCriteria o = new Others_TargetingCriteria(battleManager, b, ab3);
@@ -149,7 +149,7 @@ public class BeingFactory : MonoBehaviour {
         // b.abilities.Add(ab3);
 
 
-        Ability ab4 = new Ability(battleManager, b, "Punch", 100,1, false);
+        Ability ab4 = new Ability(b, "Punch", 100,1, false);
         ResourceAtValue_Condition reqStam = new ResourceAtValue_Condition(battleManager, b, "Stamina above 0", "STAMINA", ">", 0);
         ModulateResource_Effect costsStamina = new ModulateResource_Effect(battleManager, b, ab3, "CostsStamina", "STAMINA", -20, true);
         ModulateResource_Effect damage2 = new ModulateResource_Effect(battleManager, b, ab4, "Damage", "HP", -10, false);
@@ -166,7 +166,7 @@ public class BeingFactory : MonoBehaviour {
     void BasicSelfHealingAbility(Being b)
     {
         //Create a new ability called Healself
-        Ability ab = new Ability(battleManager, b, "Heal", 100, 1, false);
+        Ability ab = new Ability(b, "Heal", 100, 1, false);
         //create a condition that MP must not be greater the 5 (the cost)
         ResourceAtValue_Condition gt = new ResourceAtValue_Condition(battleManager, b, "MP greater than 5", "MP", ">", 5);
 
@@ -184,7 +184,7 @@ public class BeingFactory : MonoBehaviour {
     //passive ability packs
     void BasicPassiveAbilities(Being b)
     {
-        Ability reg = new Ability(battleManager, b, "Stamina regen", 100, 1, false);
+        Ability reg = new Ability(b, "Stamina regen", 100, 1, false);
         reg.isDefence = false;
 
         NewRound_Condition nrc = new NewRound_Condition(battleManager, b, "New round condition");
